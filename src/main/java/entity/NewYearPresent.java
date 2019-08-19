@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public class NewYearPresent {
     public ArrayList<Candy> present;
-    private double weight=0;
+    private double weight = 0;
 
-    public NewYearPresent(ArrayList<Candy> list){
-        present= PresentCreator.createPresent(list);
-        for (Candy candy: present
+    public NewYearPresent(ArrayList<Candy> list) {
+        present = PresentCreator.createPresent(list);
+        for (Candy candy : present
         ) {
-            weight+=candy.getWeight();
+            weight += candy.getWeight();
         }
 
     }
@@ -25,10 +25,10 @@ public class NewYearPresent {
         return present;
     }
 
-    
-    public void show(){
-        for (Candy candy: present
-             ) {
+
+    public void show() {
+        for (Candy candy : present
+        ) {
             System.out.println(candy.toString());
         }
     }

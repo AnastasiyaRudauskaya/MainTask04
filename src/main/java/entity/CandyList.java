@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CandyList {
-   private ArrayList<Candy> database;
+    private ArrayList<Candy> database;
 
-    public CandyList(File file)throws FileNotFoundException{
-       database= CandyListCreator.createCandyList(file);
+    public CandyList(File file) throws FileNotFoundException {
+        database = CandyListCreator.createCandyList(file);
     }
 
     public ArrayList<Candy> getCandyList() {
@@ -19,8 +19,8 @@ public class CandyList {
     }
 
 
-    public void show(){
-        for (Candy candy: database
+    public void show() {
+        for (Candy candy : database
         ) {
             System.out.println(candy.toString());
         }

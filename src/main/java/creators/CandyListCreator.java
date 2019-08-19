@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class CandyListCreator {
     public static ArrayList<Candy> createCandyList(File file) throws FileNotFoundException {
-        ArrayList<Candy> list =new ArrayList<Candy>();
+        ArrayList<Candy> list = new ArrayList<Candy>();
         Scanner sc = new Scanner(file);
         String type;
         String name;
@@ -20,19 +20,19 @@ public class CandyListCreator {
         double sugarContent;
         double weight;
         double percentageOfCocoa;
-        while (sc.hasNext()){
-            percentageOfCocoa=-1;
+        while (sc.hasNext()) {
+            percentageOfCocoa = -1;
             type = sc.next();
             name = sc.next();
             energyValue = sc.nextDouble();
             sugarContent = sc.nextDouble();
-            weight= sc.nextDouble();
-            if (type.equals("CHOCOLATE")){
+            weight = sc.nextDouble();
+            if (type.equals("CHOCOLATE")) {
                 percentageOfCocoa = sc.nextDouble();
             }
-            if (validateCandy(type,name,energyValue,sugarContent,weight,percentageOfCocoa)){
-                list.add(getCandy(type,name,energyValue, sugarContent,
-                        weight,percentageOfCocoa));
+            if (validateCandy(type, name, energyValue, sugarContent, weight, percentageOfCocoa)) {
+                list.add(getCandy(type, name, energyValue, sugarContent,
+                        weight, percentageOfCocoa));
 
             }
 
@@ -40,18 +40,18 @@ public class CandyListCreator {
         return list;
     }
 
-    public static boolean validateCandy(String type,String name,double energyValue,
-                                        double sugarContent, double weight,double percentageOfCocoa){
-        if (!type.equals("CHOCOLATE")&&!type.equals("CARAMEL")&&!type.equals("JELLY")) {
+    public static boolean validateCandy(String type, String name, double energyValue,
+                                        double sugarContent, double weight, double percentageOfCocoa) {
+        if (!type.equals("CHOCOLATE") && !type.equals("CARAMEL") && !type.equals("JELLY")) {
             return false;
         }
 
-        if (type.equals("CHOCOLATE")&&(percentageOfCocoa<0||percentageOfCocoa>98)){
+        if (type.equals("CHOCOLATE") && (percentageOfCocoa < 0 || percentageOfCocoa > 98)) {
             return false;
         }
 
-        if (energyValue<700&&energyValue>10&&sugarContent>=0
-                &&sugarContent<100&&weight>0&&weight<150){
+        if (energyValue < 700 && energyValue > 10 && sugarContent >= 0
+                && sugarContent < 100 && weight > 0 && weight < 150) {
             return true;
         } else {
             return false;
@@ -59,15 +59,15 @@ public class CandyListCreator {
 
     }
 
-    public static Candy getCandy(String type, String name,double energyValue,
-                                 double sugarContent, double weight,double percentageOfCocoa){
+    public static Candy getCandy(String type, String name, double energyValue,
+                                 double sugarContent, double weight, double percentageOfCocoa) {
         Candy toReturn = null;
-        if(type.equals("CARAMEL")){
-                toReturn=new CaramelCandy(name,energyValue,sugarContent,weight);
-        }else if (type.equals("JELLY")){
-            toReturn = new JellyCandy(name,energyValue,sugarContent,weight);
-        }else{
-            toReturn = new ChocolateCandy(name,energyValue,sugarContent,weight,
+        if (type.equals("CARAMEL")) {
+            toReturn = new CaramelCandy(name, energyValue, sugarContent, weight);
+        } else if (type.equals("JELLY")) {
+            toReturn = new JellyCandy(name, energyValue, sugarContent, weight);
+        } else {
+            toReturn = new ChocolateCandy(name, energyValue, sugarContent, weight,
                     percentageOfCocoa);
         }
         return toReturn;
